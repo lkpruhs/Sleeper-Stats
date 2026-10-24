@@ -1,0 +1,385 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>All-Time Trade Counts</title>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 40px; background-color: #121212; color: #e0e0e0; }
+            h2 { text-align: center; color: #ffffff; margin-top: 40px; }
+            table { width: 90%; margin: 20px auto; border-collapse: collapse; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); background-color: #1e1e1e; }
+            th, td { padding: 12px; text-align: center; border: 1px solid #333; }
+            th { background-color: #2c2c2c; color: #ffffff; font-size: 14px; }
+            tr:hover { background-color: #2a2a2a; }
+            .score { font-weight: bold; color: #00d287; }
+            .matrix-table th { background-color: #1c1c1c; position: sticky; top: 0; z-index: 2; }
+            .matrix-cell { font-weight: bold; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.8); position: relative; cursor: pointer; }
+            .matrix-diagonal { background-color: #121212; }
+            
+            /* Tooltip CSS */
+            .matrix-cell .tooltiptext {
+                visibility: hidden;
+                width: 320px;
+                background-color: #2c2c2c;
+                color: #e0e0e0;
+                text-align: left;
+                padding: 10px;
+                border-radius: 6px;
+                border: 1px solid #555;
+                position: absolute;
+                z-index: 10;
+                bottom: 110%;
+                left: 50%;
+                margin-left: -160px;
+                opacity: 0;
+                transition: opacity 0.2s;
+                font-weight: normal;
+                text-shadow: none;
+                font-size: 12px;
+                max-height: 250px;
+                overflow-y: auto;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+            }
+            .matrix-cell:hover .tooltiptext {
+                visibility: visible;
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>All-Time Trades Per Manager</h2>
+        <table style="width: 60%;">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Manager</th>
+                    <th>Completed Trades</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+                <tr>
+                    <td>1</td>
+                    <td>skylarshafer</td>
+                    <td class="score">42</td>
+                </tr>
+        
+                <tr>
+                    <td>2</td>
+                    <td>mosohn</td>
+                    <td class="score">21</td>
+                </tr>
+        
+                <tr>
+                    <td>3</td>
+                    <td>sameggert</td>
+                    <td class="score">19</td>
+                </tr>
+        
+                <tr>
+                    <td>4</td>
+                    <td>bkottak</td>
+                    <td class="score">17</td>
+                </tr>
+        
+                <tr>
+                    <td>5</td>
+                    <td>Confusius</td>
+                    <td class="score">17</td>
+                </tr>
+        
+                <tr>
+                    <td>6</td>
+                    <td>RFeiertag</td>
+                    <td class="score">11</td>
+                </tr>
+        
+                <tr>
+                    <td>7</td>
+                    <td>jtallmadge</td>
+                    <td class="score">8</td>
+                </tr>
+        
+                <tr>
+                    <td>8</td>
+                    <td>Coopergonzalez2</td>
+                    <td class="score">6</td>
+                </tr>
+        
+                <tr>
+                    <td>9</td>
+                    <td>JEhrmann</td>
+                    <td class="score">3</td>
+                </tr>
+        
+                <tr>
+                    <td>10</td>
+                    <td>vincenzo180</td>
+                    <td class="score">1</td>
+                </tr>
+        
+            </tbody>
+        </table>
+
+        <h2>Team-to-Team Trade Checkerboard</h2>
+        <table class="matrix-table">
+            <thead>
+                <tr>
+                    <th>Manager</th>
+    <th>Confusius</th><th>Coopergonzalez2</th><th>JEhrmann</th><th>RFeiertag</th><th>bkottak</th><th>jtallmadge</th><th>mosohn</th><th>sameggert</th><th>skylarshafer</th><th>vincenzo180</th></tr></thead><tbody><tr><th>Confusius</th><td class='matrix-diagonal'></td><td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td><td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td>
+                        <td class='matrix-cell' style='background-color: hsl(24.0, 75%, 35%);'>
+                            2
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br>- RFeiertag received 2027 Round 2 pick<br>- RFeiertag received 2027 Round 4 pick<br>- Confusius received 2026 Round 2 pick<br><hr style='border-color:#555;'><b>2024 Week 10:</b><br>- RFeiertag received Los Angeles Rams<br>- bkottak received 2025 Round 3 pick<br>- Confusius received 2025 Round 3 pick<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(48.0, 75%, 35%);'>
+                            4
+                            <div class='tooltiptext'><b>2025 Week 1:</b><br>- bkottak received Caleb Williams<br>- Confusius received 2026 Round 1 pick<br><hr style='border-color:#555;'><b>2025 Week 7:</b><br>- Confusius received 2028 Round 4 pick<br>- bkottak received 2028 Round 4 pick<br><hr style='border-color:#555;'><b>2024 Week 1:</b><br>- Confusius received 2025 Round 3 pick<br>- bkottak received 2025 Round 3 pick<br><hr style='border-color:#555;'><b>2024 Week 10:</b><br>- RFeiertag received Los Angeles Rams<br>- bkottak received 2025 Round 3 pick<br>- Confusius received 2025 Round 3 pick<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(12.0, 75%, 35%);'>
+                            1
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br>- jtallmadge received 2026 Round 3 pick<br>- Confusius received 2028 Round 3 pick<br>- jtallmadge received 2026 Round 3 pick<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(60.0, 75%, 35%);'>
+                            5
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br>- Confusius received 2028 Round 2 pick<br>- mosohn received 2026 Round 2 pick<br><hr style='border-color:#555;'><b>2026 Week 3:</b><br>- Confusius received 2029 Round 4 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- mosohn received Terry McLaurin<br>- Confusius received Isiah Pacheco<br>- Confusius received 2026 Round 2 pick<br>- Confusius received 2028 Round 4 pick<br><hr style='border-color:#555;'><b>2024 Week 1:</b><br>- Confusius received 2025 Round 3 pick<br>- mosohn received 2025 Round 3 pick<br><hr style='border-color:#555;'><b>2024 Week 4:</b><br>- Confusius received Jaylen Waddle<br>- mosohn received 2025 Round 1 pick<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(24.0, 75%, 35%);'>
+                            2
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br>- sameggert received Tua Tagovailoa<br>- Confusius received 2029 Round 4 pick<br><hr style='border-color:#555;'><b>2024 Week 13:</b><br>- Confusius received Gus Edwards<br>- sameggert received 2025 Round 3 pick<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(48.0, 75%, 35%);'>
+                            4
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br>- Confusius received Jakobi Meyers<br>- Confusius received Tua Tagovailoa<br>- skylarshafer received 2027 Round 4 pick<br>- skylarshafer received 2026 Round 3 pick<br><hr style='border-color:#555;'><b>2026 Week 1:</b><br>- skylarshafer received Isiah Pacheco<br>- Confusius received 2027 Round 2 pick<br>- Confusius received 2028 Round 2 pick<br>- Confusius received 2027 Round 4 pick<br>- skylarshafer received 2028 Round 2 pick<br>- skylarshafer received 2026 Round 2 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- Confusius received Cam Akers<br>- skylarshafer received 2025 Round 4 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- Confusius received 2026 Round 3 pick<br>- Confusius received 2026 Round 3 pick<br>- skylarshafer received 2025 Round 2 pick<br></div>
+                        </td>
+                    <td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td></tr><tr><th>Coopergonzalez2</th><td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td><td class='matrix-diagonal'></td>
+                        <td class='matrix-cell' style='background-color: hsl(12.0, 75%, 35%);'>
+                            1
+                            <div class='tooltiptext'><b>2025 Week 1:</b><br>- Coopergonzalez2 received 2027 Round 1 pick<br>- JEhrmann received 2027 Round 1 pick<br></div>
+                        </td>
+                    <td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td>
+                        <td class='matrix-cell' style='background-color: hsl(12.0, 75%, 35%);'>
+                            1
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br>- Coopergonzalez2 received Joe Burrow<br>- bkottak received Amon-Ra St. Brown<br>- Coopergonzalez2 received Jordan Mason<br>- Coopergonzalez2 received 2026 Round 3 pick<br>- Coopergonzalez2 received 2027 Round 3 pick<br></div>
+                        </td>
+                    <td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td>
+                        <td class='matrix-cell' style='background-color: hsl(12.0, 75%, 35%);'>
+                            1
+                            <div class='tooltiptext'><b>2024 Week 10:</b><br>- mosohn received Jayden Reed<br>- Coopergonzalez2 received Ricky Pearsall<br>- Coopergonzalez2 received 2025 Round 1 pick<br>- mosohn received 2025 Round 2 pick<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(12.0, 75%, 35%);'>
+                            1
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br>- Coopergonzalez2 received Bucky Irving<br>- sameggert received Quinshon Judkins<br>- Coopergonzalez2 received Malik Willis<br>- sameggert received 2027 Round 3 pick<br>- Coopergonzalez2 received 2027 Round 3 pick<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(24.0, 75%, 35%);'>
+                            2
+                            <div class='tooltiptext'><b>2025 Week 2:</b><br>- Coopergonzalez2 received 2026 Round 1 pick<br>- skylarshafer received 2028 Round 1 pick<br><hr style='border-color:#555;'><b>2025 Week 2:</b><br>- Coopergonzalez2 received Sam LaPorta<br>- skylarshafer received George Kittle<br>- Coopergonzalez2 received 2026 Round 2 pick<br>- skylarshafer received 2026 Round 1 pick<br></div>
+                        </td>
+                    <td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td></tr><tr><th>JEhrmann</th><td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td>
+                        <td class='matrix-cell' style='background-color: hsl(12.0, 75%, 35%);'>
+                            1
+                            <div class='tooltiptext'><b>2025 Week 1:</b><br>- Coopergonzalez2 received 2027 Round 1 pick<br>- JEhrmann received 2027 Round 1 pick<br></div>
+                        </td>
+                    <td class='matrix-diagonal'></td><td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td><td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td><td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td><td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td>
+                        <td class='matrix-cell' style='background-color: hsl(24.0, 75%, 35%);'>
+                            2
+                            <div class='tooltiptext'><b>2025 Week 1:</b><br>- JEhrmann received Kyle Williams<br>- sameggert received Drake London<br>- JEhrmann received 2026 Round 1 pick<br>- JEhrmann received 2027 Round 1 pick<br>- JEhrmann received 2026 Round 1 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- sameggert received Drake Maye<br>- JEhrmann received Jayden Daniels<br>- JEhrmann received Xavier Worthy<br>- sameggert received Ladd McConkey<br></div>
+                        </td>
+                    <td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td><td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td></tr><tr><th>RFeiertag</th>
+                        <td class='matrix-cell' style='background-color: hsl(24.0, 75%, 35%);'>
+                            2
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br>- RFeiertag received 2027 Round 2 pick<br>- RFeiertag received 2027 Round 4 pick<br>- Confusius received 2026 Round 2 pick<br><hr style='border-color:#555;'><b>2024 Week 10:</b><br>- RFeiertag received Los Angeles Rams<br>- bkottak received 2025 Round 3 pick<br>- Confusius received 2025 Round 3 pick<br></div>
+                        </td>
+                    <td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td><td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td><td class='matrix-diagonal'></td>
+                        <td class='matrix-cell' style='background-color: hsl(12.0, 75%, 35%);'>
+                            1
+                            <div class='tooltiptext'><b>2024 Week 10:</b><br>- RFeiertag received Los Angeles Rams<br>- bkottak received 2025 Round 3 pick<br>- Confusius received 2025 Round 3 pick<br></div>
+                        </td>
+                    <td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td>
+                        <td class='matrix-cell' style='background-color: hsl(12.0, 75%, 35%);'>
+                            1
+                            <div class='tooltiptext'><b>2025 Week 1:</b><br>- RFeiertag received Justin Herbert<br>- mosohn received Cole Kmet<br>- mosohn received Chase Brown<br>- RFeiertag received Marvin Mims Jr.<br>- RFeiertag received Tank Dell<br>- mosohn received 2025 Round 2 pick<br>- mosohn received 2025 Round 3 pick<br></div>
+                        </td>
+                    <td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td>
+                        <td class='matrix-cell' style='background-color: hsl(96.0, 75%, 35%);'>
+                            8
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br>- skylarshafer received Brandon Aubrey<br>- RFeiertag received RJ Harvey<br><hr style='border-color:#555;'><b>2026 Week 1:</b><br>- skylarshafer received Michael Wilson<br>- RFeiertag received Kyren Williams<br>- skylarshafer received Parker Washington<br><hr style='border-color:#555;'><b>2026 Week 1:</b><br>- RFeiertag received Michael Wilson<br>- skylarshafer received Kyren Williams<br>- RFeiertag received Parker Washington<br><hr style='border-color:#555;'><b>2026 Week 1:</b><br>- skylarshafer received De'Von Achane<br>- RFeiertag received 2027 Round 1 pick<br>- RFeiertag received 2028 Round 1 pick<br>- RFeiertag received 2027 Round 1 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- RFeiertag received Jameson Williams<br>- RFeiertag received Kyren Williams<br>- skylarshafer received Puka Nacua<br>- skylarshafer received 2025 Round 1 pick<br><hr style='border-color:#555;'><b>2025 Week 13:</b><br>- skylarshafer received Derrick Henry<br>- skylarshafer received Jakobi Meyers<br>- RFeiertag received 2028 Round 1 pick<br>- RFeiertag received 2028 Round 3 pick<br><hr style='border-color:#555;'><b>2024 Week 10:</b><br>- RFeiertag received Chase Brown<br>- skylarshafer received 2027 Round 1 pick<br><hr style='border-color:#555;'><b>2024 Week 13:</b><br>- RFeiertag received Jonnu Smith<br>- RFeiertag received 2025 Round 2 pick<br>- skylarshafer received 2026 Round 1 pick<br></div>
+                        </td>
+                    <td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td></tr><tr><th>bkottak</th>
+                        <td class='matrix-cell' style='background-color: hsl(48.0, 75%, 35%);'>
+                            4
+                            <div class='tooltiptext'><b>2025 Week 1:</b><br>- bkottak received Caleb Williams<br>- Confusius received 2026 Round 1 pick<br><hr style='border-color:#555;'><b>2025 Week 7:</b><br>- Confusius received 2028 Round 4 pick<br>- bkottak received 2028 Round 4 pick<br><hr style='border-color:#555;'><b>2024 Week 1:</b><br>- Confusius received 2025 Round 3 pick<br>- bkottak received 2025 Round 3 pick<br><hr style='border-color:#555;'><b>2024 Week 10:</b><br>- RFeiertag received Los Angeles Rams<br>- bkottak received 2025 Round 3 pick<br>- Confusius received 2025 Round 3 pick<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(12.0, 75%, 35%);'>
+                            1
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br>- Coopergonzalez2 received Joe Burrow<br>- bkottak received Amon-Ra St. Brown<br>- Coopergonzalez2 received Jordan Mason<br>- Coopergonzalez2 received 2026 Round 3 pick<br>- Coopergonzalez2 received 2027 Round 3 pick<br></div>
+                        </td>
+                    <td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td>
+                        <td class='matrix-cell' style='background-color: hsl(12.0, 75%, 35%);'>
+                            1
+                            <div class='tooltiptext'><b>2024 Week 10:</b><br>- RFeiertag received Los Angeles Rams<br>- bkottak received 2025 Round 3 pick<br>- Confusius received 2025 Round 3 pick<br></div>
+                        </td>
+                    <td class='matrix-diagonal'></td>
+                        <td class='matrix-cell' style='background-color: hsl(24.0, 75%, 35%);'>
+                            2
+                            <div class='tooltiptext'><b>2025 Week 3:</b><br>- bkottak received Daniel Jones<br>- jtallmadge received 2027 Round 4 pick<br><hr style='border-color:#555;'><b>2025 Week 13:</b><br>- bkottak received Davante Adams<br>- jtallmadge received 2026 Round 2 pick<br>- jtallmadge received 2027 Round 2 pick<br>- jtallmadge received 2028 Round 2 pick<br>- jtallmadge received 2026 Round 3 pick<br>- bkottak received 2027 Round 3 pick<br></div>
+                        </td>
+                    <td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td>
+                        <td class='matrix-cell' style='background-color: hsl(36.0, 75%, 35%);'>
+                            3
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br>- sameggert received MarShawn Lloyd<br>- bkottak received 2028 Round 2 pick<br><hr style='border-color:#555;'><b>2026 Week 1:</b><br>- sameggert received Keenan Allen<br><hr style='border-color:#555;'><b>2024 Week 7:</b><br>- sameggert received Rashod Bateman<br>- bkottak received Keaton Mitchell<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(84.0, 75%, 35%);'>
+                            7
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br><hr style='border-color:#555;'><b>2026 Week 1:</b><br><hr style='border-color:#555;'><b>2026 Week 1:</b><br>- bkottak received Devin Neal<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- bkottak received 2025 Round 4 pick<br>- skylarshafer received 2025 Round 4 pick<br>- skylarshafer received 2026 Round 4 pick<br>- bkottak received 2026 Round 3 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- skylarshafer received Tua Tagovailoa<br>- skylarshafer received 2025 Round 2 pick<br>- bkottak received 2025 Round 3 pick<br>- bkottak received 2025 Round 1 pick<br><hr style='border-color:#555;'><b>2024 Week 1:</b><br>- bkottak received 2025 Round 3 pick<br>- skylarshafer received 2025 Round 3 pick<br><hr style='border-color:#555;'><b>2024 Week 10:</b><br>- skylarshafer received 2025 Round 3 pick<br>- bkottak received 2025 Round 3 pick<br></div>
+                        </td>
+                    <td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td></tr><tr><th>jtallmadge</th>
+                        <td class='matrix-cell' style='background-color: hsl(12.0, 75%, 35%);'>
+                            1
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br>- jtallmadge received 2026 Round 3 pick<br>- Confusius received 2028 Round 3 pick<br>- jtallmadge received 2026 Round 3 pick<br></div>
+                        </td>
+                    <td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td><td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td><td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td>
+                        <td class='matrix-cell' style='background-color: hsl(24.0, 75%, 35%);'>
+                            2
+                            <div class='tooltiptext'><b>2025 Week 3:</b><br>- bkottak received Daniel Jones<br>- jtallmadge received 2027 Round 4 pick<br><hr style='border-color:#555;'><b>2025 Week 13:</b><br>- bkottak received Davante Adams<br>- jtallmadge received 2026 Round 2 pick<br>- jtallmadge received 2027 Round 2 pick<br>- jtallmadge received 2028 Round 2 pick<br>- jtallmadge received 2026 Round 3 pick<br>- bkottak received 2027 Round 3 pick<br></div>
+                        </td>
+                    <td class='matrix-diagonal'></td>
+                        <td class='matrix-cell' style='background-color: hsl(12.0, 75%, 35%);'>
+                            1
+                            <div class='tooltiptext'><b>2025 Week 1:</b><br>- jtallmadge received Jayden Reed<br>- jtallmadge received Joe Mixon<br>- mosohn received Marvin Mims Jr.<br>- jtallmadge received 2025 Round 4 pick<br>- mosohn received 2025 Round 1 pick<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(12.0, 75%, 35%);'>
+                            1
+                            <div class='tooltiptext'><b>2025 Week 1:</b><br>- jtallmadge received Ben Sinnott<br>- jtallmadge received 2025 Round 2 pick<br>- jtallmadge received 2025 Round 3 pick<br>- sameggert received 2025 Round 2 pick<br>- sameggert received 2025 Round 3 pick<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(36.0, 75%, 35%);'>
+                            3
+                            <div class='tooltiptext'><b>2025 Week 1:</b><br>- jtallmadge received 2028 Round 4 pick<br>- skylarshafer received 2028 Round 4 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- skylarshafer received Tom Brady<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- jtallmadge received Tom Brady<br>- skylarshafer received Tyreek Hill<br>- jtallmadge received Marvin Mims Jr.<br>- skylarshafer received 2025 Round 2 pick<br>- skylarshafer received 2026 Round 3 pick<br>- jtallmadge received 2025 Round 1 pick<br></div>
+                        </td>
+                    <td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td></tr><tr><th>mosohn</th>
+                        <td class='matrix-cell' style='background-color: hsl(60.0, 75%, 35%);'>
+                            5
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br>- Confusius received 2028 Round 2 pick<br>- mosohn received 2026 Round 2 pick<br><hr style='border-color:#555;'><b>2026 Week 3:</b><br>- Confusius received 2029 Round 4 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- mosohn received Terry McLaurin<br>- Confusius received Isiah Pacheco<br>- Confusius received 2026 Round 2 pick<br>- Confusius received 2028 Round 4 pick<br><hr style='border-color:#555;'><b>2024 Week 1:</b><br>- Confusius received 2025 Round 3 pick<br>- mosohn received 2025 Round 3 pick<br><hr style='border-color:#555;'><b>2024 Week 4:</b><br>- Confusius received Jaylen Waddle<br>- mosohn received 2025 Round 1 pick<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(12.0, 75%, 35%);'>
+                            1
+                            <div class='tooltiptext'><b>2024 Week 10:</b><br>- mosohn received Jayden Reed<br>- Coopergonzalez2 received Ricky Pearsall<br>- Coopergonzalez2 received 2025 Round 1 pick<br>- mosohn received 2025 Round 2 pick<br></div>
+                        </td>
+                    <td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td>
+                        <td class='matrix-cell' style='background-color: hsl(12.0, 75%, 35%);'>
+                            1
+                            <div class='tooltiptext'><b>2025 Week 1:</b><br>- RFeiertag received Justin Herbert<br>- mosohn received Cole Kmet<br>- mosohn received Chase Brown<br>- RFeiertag received Marvin Mims Jr.<br>- RFeiertag received Tank Dell<br>- mosohn received 2025 Round 2 pick<br>- mosohn received 2025 Round 3 pick<br></div>
+                        </td>
+                    <td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td>
+                        <td class='matrix-cell' style='background-color: hsl(12.0, 75%, 35%);'>
+                            1
+                            <div class='tooltiptext'><b>2025 Week 1:</b><br>- jtallmadge received Jayden Reed<br>- jtallmadge received Joe Mixon<br>- mosohn received Marvin Mims Jr.<br>- jtallmadge received 2025 Round 4 pick<br>- mosohn received 2025 Round 1 pick<br></div>
+                        </td>
+                    <td class='matrix-diagonal'></td>
+                        <td class='matrix-cell' style='background-color: hsl(24.0, 75%, 35%);'>
+                            2
+                            <div class='tooltiptext'><b>2025 Week 1:</b><br>- mosohn received 2027 Round 2 pick<br>- sameggert received 2025 Round 2 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- sameggert received Dalton Kincaid<br>- mosohn received Bryce Young<br>- sameggert received 2025 Round 2 pick<br>- mosohn received 2025 Round 2 pick<br>- mosohn received 2025 Round 4 pick<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(120.0, 75%, 35%);'>
+                            10
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br>- mosohn received 2026 Round 4 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- mosohn received Cedric Tillman<br>- skylarshafer received 2027 Round 4 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- mosohn received Tyreek Hill<br>- skylarshafer received 2026 Round 1 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- skylarshafer received Marvin Harrison Jr.<br>- mosohn received Nico Collins<br>- mosohn received 2025 Round 3 pick<br>- skylarshafer received 2025 Round 2 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- mosohn received Saquon Barkley<br>- skylarshafer received Puka Nacua<br>- skylarshafer received 2026 Round 4 pick<br>- skylarshafer received 2025 Round 2 pick<br>- skylarshafer received 2025 Round 2 pick<br>- mosohn received 2026 Round 2 pick<br>- mosohn received 2027 Round 1 pick<br>- skylarshafer received 2026 Round 3 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- skylarshafer received Saquon Barkley<br>- mosohn received Puka Nacua<br>- mosohn received 2026 Round 4 pick<br>- mosohn received 2025 Round 2 pick<br>- skylarshafer received 2026 Round 2 pick<br>- skylarshafer received 2027 Round 1 pick<br>- mosohn received 2026 Round 3 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- skylarshafer received David Montgomery<br>- mosohn received 2025 Round 2 pick<br>- skylarshafer received 2025 Round 2 pick<br>- skylarshafer received 2025 Round 4 pick<br>- mosohn received 2025 Round 2 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- mosohn received Michael Pittman Jr.<br>- skylarshafer received 2026 Round 3 pick<br>- skylarshafer received 2027 Round 3 pick<br>- skylarshafer received 2025 Round 3 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- mosohn received Isiah Pacheco<br>- skylarshafer received 2025 Round 1 pick<br><hr style='border-color:#555;'><b>2024 Week 13:</b><br>- mosohn received Anthony Richardson Sr.<br>- skylarshafer received 2025 Round 2 pick<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(12.0, 75%, 35%);'>
+                            1
+                            <div class='tooltiptext'><b>2025 Week 1:</b><br>- mosohn received 2025 Round 3 pick<br>- vincenzo180 received 2026 Round 4 pick<br>- vincenzo180 received 2025 Round 3 pick<br></div>
+                        </td>
+                    </tr><tr><th>sameggert</th>
+                        <td class='matrix-cell' style='background-color: hsl(24.0, 75%, 35%);'>
+                            2
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br>- sameggert received Tua Tagovailoa<br>- Confusius received 2029 Round 4 pick<br><hr style='border-color:#555;'><b>2024 Week 13:</b><br>- Confusius received Gus Edwards<br>- sameggert received 2025 Round 3 pick<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(12.0, 75%, 35%);'>
+                            1
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br>- Coopergonzalez2 received Bucky Irving<br>- sameggert received Quinshon Judkins<br>- Coopergonzalez2 received Malik Willis<br>- sameggert received 2027 Round 3 pick<br>- Coopergonzalez2 received 2027 Round 3 pick<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(24.0, 75%, 35%);'>
+                            2
+                            <div class='tooltiptext'><b>2025 Week 1:</b><br>- JEhrmann received Kyle Williams<br>- sameggert received Drake London<br>- JEhrmann received 2026 Round 1 pick<br>- JEhrmann received 2027 Round 1 pick<br>- JEhrmann received 2026 Round 1 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- sameggert received Drake Maye<br>- JEhrmann received Jayden Daniels<br>- JEhrmann received Xavier Worthy<br>- sameggert received Ladd McConkey<br></div>
+                        </td>
+                    <td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td>
+                        <td class='matrix-cell' style='background-color: hsl(36.0, 75%, 35%);'>
+                            3
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br>- sameggert received MarShawn Lloyd<br>- bkottak received 2028 Round 2 pick<br><hr style='border-color:#555;'><b>2026 Week 1:</b><br>- sameggert received Keenan Allen<br><hr style='border-color:#555;'><b>2024 Week 7:</b><br>- sameggert received Rashod Bateman<br>- bkottak received Keaton Mitchell<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(12.0, 75%, 35%);'>
+                            1
+                            <div class='tooltiptext'><b>2025 Week 1:</b><br>- jtallmadge received Ben Sinnott<br>- jtallmadge received 2025 Round 2 pick<br>- jtallmadge received 2025 Round 3 pick<br>- sameggert received 2025 Round 2 pick<br>- sameggert received 2025 Round 3 pick<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(24.0, 75%, 35%);'>
+                            2
+                            <div class='tooltiptext'><b>2025 Week 1:</b><br>- mosohn received 2027 Round 2 pick<br>- sameggert received 2025 Round 2 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- sameggert received Dalton Kincaid<br>- mosohn received Bryce Young<br>- sameggert received 2025 Round 2 pick<br>- mosohn received 2025 Round 2 pick<br>- mosohn received 2025 Round 4 pick<br></div>
+                        </td>
+                    <td class='matrix-diagonal'></td>
+                        <td class='matrix-cell' style='background-color: hsl(96.0, 75%, 35%);'>
+                            8
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br>- sameggert received Marvin Harrison Jr.<br>- skylarshafer received Jordyn Tyson<br>- sameggert received 2027 Round 3 pick<br><hr style='border-color:#555;'><b>2026 Week 1:</b><br>- sameggert received Jarquez Hunter<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- skylarshafer received Garrett Wilson<br>- sameggert received 2026 Round 1 pick<br>- sameggert received 2026 Round 1 pick<br>- sameggert received 2026 Round 1 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- skylarshafer received Dalton Kincaid<br>- sameggert received Jayden Daniels<br>- skylarshafer received Lamar Jackson<br>- skylarshafer received 2026 Round 2 pick<br>- sameggert received 2027 Round 1 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- skylarshafer received Tank Bigsby<br>- sameggert received 2025 Round 2 pick<br>- skylarshafer received 2025 Round 3 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- sameggert received Jalen McMillan<br>- skylarshafer received Nico Collins<br>- sameggert received James Cook III<br>- sameggert received Bryce Young<br>- skylarshafer received Marvin Mims Jr.<br>- sameggert received 2025 Round 1 pick<br>- skylarshafer received 2025 Round 1 pick<br>- sameggert received 2026 Round 1 pick<br>- skylarshafer received 2026 Round 3 pick<br><hr style='border-color:#555;'><b>2024 Week 6:</b><br>- sameggert received Bucky Irving<br>- sameggert received Xavier Worthy<br>- skylarshafer received Isiah Pacheco<br>- skylarshafer received 2026 Round 1 pick<br><hr style='border-color:#555;'><b>2024 Week 7:</b><br>- sameggert received Tank Bigsby<br>- skylarshafer received 2027 Round 1 pick<br></div>
+                        </td>
+                    <td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td></tr><tr><th>skylarshafer</th>
+                        <td class='matrix-cell' style='background-color: hsl(48.0, 75%, 35%);'>
+                            4
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br>- Confusius received Jakobi Meyers<br>- Confusius received Tua Tagovailoa<br>- skylarshafer received 2027 Round 4 pick<br>- skylarshafer received 2026 Round 3 pick<br><hr style='border-color:#555;'><b>2026 Week 1:</b><br>- skylarshafer received Isiah Pacheco<br>- Confusius received 2027 Round 2 pick<br>- Confusius received 2028 Round 2 pick<br>- Confusius received 2027 Round 4 pick<br>- skylarshafer received 2028 Round 2 pick<br>- skylarshafer received 2026 Round 2 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- Confusius received Cam Akers<br>- skylarshafer received 2025 Round 4 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- Confusius received 2026 Round 3 pick<br>- Confusius received 2026 Round 3 pick<br>- skylarshafer received 2025 Round 2 pick<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(24.0, 75%, 35%);'>
+                            2
+                            <div class='tooltiptext'><b>2025 Week 2:</b><br>- Coopergonzalez2 received 2026 Round 1 pick<br>- skylarshafer received 2028 Round 1 pick<br><hr style='border-color:#555;'><b>2025 Week 2:</b><br>- Coopergonzalez2 received Sam LaPorta<br>- skylarshafer received George Kittle<br>- Coopergonzalez2 received 2026 Round 2 pick<br>- skylarshafer received 2026 Round 1 pick<br></div>
+                        </td>
+                    <td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td>
+                        <td class='matrix-cell' style='background-color: hsl(96.0, 75%, 35%);'>
+                            8
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br>- skylarshafer received Brandon Aubrey<br>- RFeiertag received RJ Harvey<br><hr style='border-color:#555;'><b>2026 Week 1:</b><br>- skylarshafer received Michael Wilson<br>- RFeiertag received Kyren Williams<br>- skylarshafer received Parker Washington<br><hr style='border-color:#555;'><b>2026 Week 1:</b><br>- RFeiertag received Michael Wilson<br>- skylarshafer received Kyren Williams<br>- RFeiertag received Parker Washington<br><hr style='border-color:#555;'><b>2026 Week 1:</b><br>- skylarshafer received De'Von Achane<br>- RFeiertag received 2027 Round 1 pick<br>- RFeiertag received 2028 Round 1 pick<br>- RFeiertag received 2027 Round 1 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- RFeiertag received Jameson Williams<br>- RFeiertag received Kyren Williams<br>- skylarshafer received Puka Nacua<br>- skylarshafer received 2025 Round 1 pick<br><hr style='border-color:#555;'><b>2025 Week 13:</b><br>- skylarshafer received Derrick Henry<br>- skylarshafer received Jakobi Meyers<br>- RFeiertag received 2028 Round 1 pick<br>- RFeiertag received 2028 Round 3 pick<br><hr style='border-color:#555;'><b>2024 Week 10:</b><br>- RFeiertag received Chase Brown<br>- skylarshafer received 2027 Round 1 pick<br><hr style='border-color:#555;'><b>2024 Week 13:</b><br>- RFeiertag received Jonnu Smith<br>- RFeiertag received 2025 Round 2 pick<br>- skylarshafer received 2026 Round 1 pick<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(84.0, 75%, 35%);'>
+                            7
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br><hr style='border-color:#555;'><b>2026 Week 1:</b><br><hr style='border-color:#555;'><b>2026 Week 1:</b><br>- bkottak received Devin Neal<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- bkottak received 2025 Round 4 pick<br>- skylarshafer received 2025 Round 4 pick<br>- skylarshafer received 2026 Round 4 pick<br>- bkottak received 2026 Round 3 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- skylarshafer received Tua Tagovailoa<br>- skylarshafer received 2025 Round 2 pick<br>- bkottak received 2025 Round 3 pick<br>- bkottak received 2025 Round 1 pick<br><hr style='border-color:#555;'><b>2024 Week 1:</b><br>- bkottak received 2025 Round 3 pick<br>- skylarshafer received 2025 Round 3 pick<br><hr style='border-color:#555;'><b>2024 Week 10:</b><br>- skylarshafer received 2025 Round 3 pick<br>- bkottak received 2025 Round 3 pick<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(36.0, 75%, 35%);'>
+                            3
+                            <div class='tooltiptext'><b>2025 Week 1:</b><br>- jtallmadge received 2028 Round 4 pick<br>- skylarshafer received 2028 Round 4 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- skylarshafer received Tom Brady<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- jtallmadge received Tom Brady<br>- skylarshafer received Tyreek Hill<br>- jtallmadge received Marvin Mims Jr.<br>- skylarshafer received 2025 Round 2 pick<br>- skylarshafer received 2026 Round 3 pick<br>- jtallmadge received 2025 Round 1 pick<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(120.0, 75%, 35%);'>
+                            10
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br>- mosohn received 2026 Round 4 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- mosohn received Cedric Tillman<br>- skylarshafer received 2027 Round 4 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- mosohn received Tyreek Hill<br>- skylarshafer received 2026 Round 1 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- skylarshafer received Marvin Harrison Jr.<br>- mosohn received Nico Collins<br>- mosohn received 2025 Round 3 pick<br>- skylarshafer received 2025 Round 2 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- mosohn received Saquon Barkley<br>- skylarshafer received Puka Nacua<br>- skylarshafer received 2026 Round 4 pick<br>- skylarshafer received 2025 Round 2 pick<br>- skylarshafer received 2025 Round 2 pick<br>- mosohn received 2026 Round 2 pick<br>- mosohn received 2027 Round 1 pick<br>- skylarshafer received 2026 Round 3 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- skylarshafer received Saquon Barkley<br>- mosohn received Puka Nacua<br>- mosohn received 2026 Round 4 pick<br>- mosohn received 2025 Round 2 pick<br>- skylarshafer received 2026 Round 2 pick<br>- skylarshafer received 2027 Round 1 pick<br>- mosohn received 2026 Round 3 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- skylarshafer received David Montgomery<br>- mosohn received 2025 Round 2 pick<br>- skylarshafer received 2025 Round 2 pick<br>- skylarshafer received 2025 Round 4 pick<br>- mosohn received 2025 Round 2 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- mosohn received Michael Pittman Jr.<br>- skylarshafer received 2026 Round 3 pick<br>- skylarshafer received 2027 Round 3 pick<br>- skylarshafer received 2025 Round 3 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- mosohn received Isiah Pacheco<br>- skylarshafer received 2025 Round 1 pick<br><hr style='border-color:#555;'><b>2024 Week 13:</b><br>- mosohn received Anthony Richardson Sr.<br>- skylarshafer received 2025 Round 2 pick<br></div>
+                        </td>
+                    
+                        <td class='matrix-cell' style='background-color: hsl(96.0, 75%, 35%);'>
+                            8
+                            <div class='tooltiptext'><b>2026 Week 1:</b><br>- sameggert received Marvin Harrison Jr.<br>- skylarshafer received Jordyn Tyson<br>- sameggert received 2027 Round 3 pick<br><hr style='border-color:#555;'><b>2026 Week 1:</b><br>- sameggert received Jarquez Hunter<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- skylarshafer received Garrett Wilson<br>- sameggert received 2026 Round 1 pick<br>- sameggert received 2026 Round 1 pick<br>- sameggert received 2026 Round 1 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- skylarshafer received Dalton Kincaid<br>- sameggert received Jayden Daniels<br>- skylarshafer received Lamar Jackson<br>- skylarshafer received 2026 Round 2 pick<br>- sameggert received 2027 Round 1 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- skylarshafer received Tank Bigsby<br>- sameggert received 2025 Round 2 pick<br>- skylarshafer received 2025 Round 3 pick<br><hr style='border-color:#555;'><b>2025 Week 1:</b><br>- sameggert received Jalen McMillan<br>- skylarshafer received Nico Collins<br>- sameggert received James Cook III<br>- sameggert received Bryce Young<br>- skylarshafer received Marvin Mims Jr.<br>- sameggert received 2025 Round 1 pick<br>- skylarshafer received 2025 Round 1 pick<br>- sameggert received 2026 Round 1 pick<br>- skylarshafer received 2026 Round 3 pick<br><hr style='border-color:#555;'><b>2024 Week 6:</b><br>- sameggert received Bucky Irving<br>- sameggert received Xavier Worthy<br>- skylarshafer received Isiah Pacheco<br>- skylarshafer received 2026 Round 1 pick<br><hr style='border-color:#555;'><b>2024 Week 7:</b><br>- sameggert received Tank Bigsby<br>- skylarshafer received 2027 Round 1 pick<br></div>
+                        </td>
+                    <td class='matrix-diagonal'></td><td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td></tr><tr><th>vincenzo180</th><td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td><td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td><td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td><td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td><td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td><td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td>
+                        <td class='matrix-cell' style='background-color: hsl(12.0, 75%, 35%);'>
+                            1
+                            <div class='tooltiptext'><b>2025 Week 1:</b><br>- mosohn received 2025 Round 3 pick<br>- vincenzo180 received 2026 Round 4 pick<br>- vincenzo180 received 2025 Round 3 pick<br></div>
+                        </td>
+                    <td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td><td class='matrix-cell' style='background-color: hsl(0, 100%, 25%);'>0</td><td class='matrix-diagonal'></td></tr>
+            </tbody>
+        </table>
+    </body>
+    </html>
+    
