@@ -1,0 +1,142 @@
+import requests
+from collections import defaultdict
+
+class SleeperClient:
+    BASE_URL = "https://api.sleeper.app/v1"
+
+    def __init__(self):
+        self.session = requests.Session()
+
+    def _get(self, endpoint):
+        url = f"{self.BASE_URL}/{endpoint}"
+        try:
+            response = self.session.get(url)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching data from {url}: {e}")
+            return None
+
+    def get_league_info(self, league_id):
+        return self._get(f"league/{league_id}")
+
+    def get_rosters(self, league_id):
+        return self._get(f"league/{league_id}/rosters")
+
+    def get_users(self, league_id):
+        return self._get(f"league/{league_id}/users")
+
+    def get_matchups(self, league_id, week):
+        return self._get(f"league/{league_id}/matchups/{week}")
+
+def main():
+    league_id = "1311996156489773056"
+    client = SleeperClient()
+
+    print("Querying Sleeper API for 'bad luck' losses (2nd or 3rd highest scoring)...\n")
+
+    # Dictionary to track counts for the final table
+    # Format: { "Manager Name": {"2nd": 0, "3rd": 0} }
+    unlucky_losses = defaultdict(lambda: {"2nd": 0, "3rd": 0})
+
+    while league_id:
+        league_info = client.get_league_info(league_id)
+        if not league_info:
+            break
+            
+        season = league_info.get("season")
+        users = client.get_users(league_id)
+        rosters = client.get_rosters(league_id)
+        
+        if not users or not rosters:
+            league_id = league_info.get("previous_league_id")
+            continue
+
+        # Map owner IDs to display names
+        user_map = {u["user_id"]: u.get("display_name", "Unknown") for u in users}
+        roster_map = {r["roster_id"]: user_map.get(r["owner_id"], f"Team {r['roster_id']}") for r in rosters}
+        
+        for week in range(1, 19):
+            matchups = client.get_matchups(league_id, week)
+            if not matchups:
+                continue
+                
+            # Skip unplayed weeks (where all scores are 0)
+            if all(m.get("points", 0) == 0 for m in matchups):
+                continue
+                
+            # Group matchups by matchup_id for H2H
+            games = defaultdict(list)
+            for m in matchups:
+                mid = m.get("matchup_id")
+                if mid is not None:
+                    games[mid].append({
+                        "roster_id": m["roster_id"],
+                        "points": m.get("points", 0)
+                    })
+                
+            playing_teams = []
+            for mid, teams in games.items():
+                if len(teams) == 2:
+                    playing_teams.extend(teams)
+                    
+            if len(playing_teams) < 3:
+                continue
+                
+            # Sort teams by points DESCENDING to find top scorers
+            sorted_teams = sorted(playing_teams, key=lambda x: x["points"], reverse=True)
+            
+            second_highest = sorted_teams[1]
+            third_highest = sorted_teams[2]
+            
+            # Helper function to find a team's opponent and check if they lost
+            def check_loss(target_team):
+                for mid, teams in games.items():
+                    if len(teams) == 2:
+                        if teams[0]["roster_id"] == target_team["roster_id"]:
+                            opponent = teams[1]
+                            lost = target_team["points"] < opponent["points"]
+                            return opponent, lost
+                        elif teams[1]["roster_id"] == target_team["roster_id"]:
+                            opponent = teams[0]
+                            lost = target_team["points"] < opponent["points"]
+                            return opponent, lost
+                return None, False
+
+            # Check 2nd Highest Scorer
+            opp_2, lost_2 = check_loss(second_highest)
+            if lost_2:
+                manager = roster_map.get(second_highest['roster_id'], 'Unknown')
+                opp_manager = roster_map.get(opp_2['roster_id'], 'Unknown')
+                unlucky_losses[manager]["2nd"] += 1
+                print(f"Year: {season} | Week: {week:2d} | [2nd Highest] {manager} lost ({second_highest['points']}) to {opp_manager} ({opp_2['points']})")
+
+            # Check 3rd Highest Scorer
+            opp_3, lost_3 = check_loss(third_highest)
+            if lost_3:
+                manager = roster_map.get(third_highest['roster_id'], 'Unknown')
+                opp_manager = roster_map.get(opp_3['roster_id'], 'Unknown')
+                unlucky_losses[manager]["3rd"] += 1
+                print(f"Year: {season} | Week: {week:2d} | [3rd Highest] {manager} lost ({third_highest['points']}) to {opp_manager} ({opp_3['points']})")
+
+        # Traverse backward to the previous year
+        league_id = league_info.get("previous_league_id")
+
+    # --- Print Summary Table ---
+    print("\n\n" + "="*60)
+    print(f"{'Manager Name':<20} | {'2nd Highest Losses':<20} | {'3rd Highest Losses':<15}")
+    print("-" * 60)
+    
+    # Sort the table by total unlucky losses (2nd + 3rd) descending
+    sorted_stats = sorted(
+        unlucky_losses.items(), 
+        key=lambda item: item[1]["2nd"] + item[1]["3rd"], 
+        reverse=True
+    )
+    
+    for manager, stats in sorted_stats:
+        print(f"{manager:<20} | {stats['2nd']:<20} | {stats['3rd']:<15}")
+    print("="*60 + "\n")
+
+if __name__ == "__main__":
+    main()
