@@ -1,0 +1,674 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Appreciators of Beer and also Punishment - Advanced Records</title>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 40px; background-color: #121212; color: #e0e0e0; }
+            h2 { text-align: center; color: #ffffff; margin-top: 40px; }
+            table { width: 90%; margin: 20px auto; border-collapse: collapse; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); background-color: #1e1e1e; }
+            th, td { padding: 12px; text-align: center; border: 1px solid #333; }
+            th { background-color: #2c2c2c; color: #ffffff; font-size: 14px; }
+            tr:hover { background-color: #2a2a2a; }
+            .score { font-weight: bold; color: #ffffff; text-shadow: 1px 1px 2px rgba(0,0,0,0.8); }
+            .matrix-table th { background-color: #1c1c1c; position: sticky; top: 0; z-index: 2; }
+            .matrix-cell, .matrix-diagonal { position: relative; cursor: pointer; }
+            .matrix-cell { font-weight: bold; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.8); }
+            .matrix-diagonal { background-color: #1a1a1a; font-weight: bold; color: #888; border: 2px solid #444; }
+            .subtitle { text-align: center; color: #aaa; margin-top: -15px; font-size: 14px; margin-bottom: 20px; }
+            .divider { border-left: 2px solid #555; }
+            
+            /* Tooltip CSS */
+            .tooltiptext {
+                visibility: hidden;
+                width: 280px;
+                background-color: #2c2c2c;
+                color: #e0e0e0;
+                text-align: left;
+                padding: 12px;
+                border-radius: 6px;
+                border: 1px solid #555;
+                position: absolute;
+                z-index: 10;
+                bottom: 110%;
+                left: 50%;
+                margin-left: -140px;
+                opacity: 0;
+                transition: opacity 0.2s;
+                font-weight: normal;
+                text-shadow: none;
+                font-size: 13px;
+                max-height: 250px;
+                overflow-y: auto;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+                line-height: 1.5;
+            }
+            .matrix-cell:hover .tooltiptext, .matrix-diagonal:hover .tooltiptext {
+                visibility: visible;
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>All-Play Records vs Actual</h2>
+        <div class="subtitle">Comparing true performance against schedule luck</div>
+        <table style="width: 80%;">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Manager</th>
+                    <th>Actual Record</th>
+                    <th>Actual Win %</th>
+                    <th class="divider">All-Play Record</th>
+                    <th>All-Play Win %</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+                <tr>
+                    <td>1</td>
+                    <td>bkottak</td>
+                    <td>5-4</td>
+                    <td>0.556</td>
+                    <td class="divider score" style="background-color: hsl(94.81481481481481, 75%, 35%);">64-17</td>
+                    <td>0.790</td>
+                </tr>
+        
+                <tr>
+                    <td>2</td>
+                    <td>vincenzo180</td>
+                    <td>4-5</td>
+                    <td>0.444</td>
+                    <td class="divider score" style="background-color: hsl(77.03703703703704, 75%, 35%);">52-29</td>
+                    <td>0.642</td>
+                </tr>
+        
+                <tr>
+                    <td>3</td>
+                    <td>Coopergonzalez2</td>
+                    <td>4-5</td>
+                    <td>0.444</td>
+                    <td class="divider score" style="background-color: hsl(68.14814814814814, 75%, 35%);">46-35</td>
+                    <td>0.568</td>
+                </tr>
+        
+                <tr>
+                    <td>4</td>
+                    <td>sameggert</td>
+                    <td>3-6</td>
+                    <td>0.333</td>
+                    <td class="divider score" style="background-color: hsl(66.66666666666667, 75%, 35%);">45-36</td>
+                    <td>0.556</td>
+                </tr>
+        
+                <tr>
+                    <td>5</td>
+                    <td>mosohn</td>
+                    <td>8-1</td>
+                    <td>0.889</td>
+                    <td class="divider score" style="background-color: hsl(65.18518518518518, 75%, 35%);">44-37</td>
+                    <td>0.543</td>
+                </tr>
+        
+                <tr>
+                    <td>6</td>
+                    <td>Confusius</td>
+                    <td>6-3</td>
+                    <td>0.667</td>
+                    <td class="divider score" style="background-color: hsl(57.77777777777777, 75%, 35%);">39-42</td>
+                    <td>0.481</td>
+                </tr>
+        
+                <tr>
+                    <td>7</td>
+                    <td>skylarshafer</td>
+                    <td>7-2</td>
+                    <td>0.778</td>
+                    <td class="divider score" style="background-color: hsl(54.81481481481481, 75%, 35%);">37-44</td>
+                    <td>0.457</td>
+                </tr>
+        
+                <tr>
+                    <td>8</td>
+                    <td>JEhrmann</td>
+                    <td>3-6</td>
+                    <td>0.333</td>
+                    <td class="divider score" style="background-color: hsl(50.37037037037037, 75%, 35%);">34-47</td>
+                    <td>0.420</td>
+                </tr>
+        
+                <tr>
+                    <td>9</td>
+                    <td>jtallmadge</td>
+                    <td>2-7</td>
+                    <td>0.222</td>
+                    <td class="divider score" style="background-color: hsl(35.55555555555556, 75%, 35%);">24-57</td>
+                    <td>0.296</td>
+                </tr>
+        
+                <tr>
+                    <td>10</td>
+                    <td>RFeiertag</td>
+                    <td>3-6</td>
+                    <td>0.333</td>
+                    <td class="divider score" style="background-color: hsl(29.629629629629626, 75%, 35%);">20-61</td>
+                    <td>0.247</td>
+                </tr>
+        
+            </tbody>
+        </table>
+
+        <h2>Schedule Swap Matrix</h2>
+        <div class="subtitle">Rows = Team | Columns = If they played this manager's schedule (Hover for scores)</div>
+        <table class="matrix-table">
+            <thead>
+                <tr>
+                    <th>Manager</th>
+    <th>bkottak</th><th>Confusius</th><th>Coopergonzalez2</th><th>JEhrmann</th><th>jtallmadge</th><th>mosohn</th><th>RFeiertag</th><th>sameggert</th><th>skylarshafer</th><th>vincenzo180</th></tr></thead><tbody><tr><th>bkottak</th>
+                    <td class='matrix-diagonal'>
+                        5-4
+                        <div class='tooltiptext'><b>Actual Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 209.76 - 91.02 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 2: 145.42 - 160.12 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 211.80 - 118.40 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 4: 144.84 - 132.18 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 5: 163.08 - 151.30 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 6: 139.00 - 104.34 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 7: 146.72 - 164.98 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 108.16 - 123.36 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 147.26 - 164.98 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(120.0, 75%, 35%);'>
+                        8-0
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 209.76 - 143.96 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 3: 211.80 - 110.46 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 4: 144.84 - 138.26 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 5: 163.08 - 100.56 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 6: 139.00 - 105.94 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 7: 146.72 - 92.50 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 8: 108.16 - 105.60 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 9: 147.26 - 89.08 vs jtallmadge (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(90.0, 75%, 35%);'>
+                        6-2
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 209.76 - 81.66 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 2: 145.42 - 82.16 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 3: 211.80 - 148.34 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 4: 144.84 - 125.78 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 6: 139.00 - 164.16 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 146.72 - 132.80 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 8: 108.16 - 140.34 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 147.26 - 131.76 vs sameggert (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(90.0, 75%, 35%);'>
+                        6-2
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 209.76 - 142.46 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 2: 145.42 - 108.48 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 4: 144.84 - 195.72 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 163.08 - 157.44 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 6: 139.00 - 122.68 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 7: 146.72 - 128.38 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 8: 108.16 - 132.28 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 147.26 - 123.28 vs RFeiertag (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(90.0, 75%, 35%);'>
+                        6-2
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 209.76 - 171.96 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 2: 145.42 - 135.78 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 3: 211.80 - 135.88 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 4: 144.84 - 151.66 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 163.08 - 112.98 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 6: 139.00 - 117.84 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 8: 108.16 - 116.98 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 147.26 - 112.66 vs Confusius (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(105.0, 75%, 35%);'>
+                        7-1
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 209.76 - 130.50 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 2: 145.42 - 60.58 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 3: 211.80 - 132.94 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 4: 144.84 - 135.22 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 5: 163.08 - 80.74 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 6: 139.00 - 96.50 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 7: 146.72 - 161.54 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 147.26 - 122.46 vs skylarshafer (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(105.0, 75%, 35%);'>
+                        7-1
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 209.76 - 151.56 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 2: 145.42 - 137.16 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 3: 211.80 - 111.44 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 5: 163.08 - 76.20 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 6: 139.00 - 131.60 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 7: 146.72 - 134.52 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 8: 108.16 - 124.36 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 147.26 - 114.26 vs JEhrmann (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(75.0, 75%, 35%);'>
+                        5-3
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 2: 145.42 - 125.54 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 3: 211.80 - 114.76 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 4: 144.84 - 101.72 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 5: 163.08 - 180.52 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 139.00 - 122.16 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 7: 146.72 - 113.72 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 8: 108.16 - 124.72 vs RFeiertag (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 147.26 - 151.58 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(105.0, 75%, 35%);'>
+                        7-1
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 209.76 - 111.82 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 2: 145.42 - 132.98 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 3: 211.80 - 98.18 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 4: 144.84 - 111.80 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 5: 163.08 - 174.16 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 146.72 - 117.82 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 8: 108.16 - 91.56 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 9: 147.26 - 126.40 vs mosohn (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(105.0, 75%, 35%);'>
+                        7-1
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 209.76 - 132.00 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 2: 145.42 - 138.60 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 3: 211.80 - 118.52 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 4: 144.84 - 128.84 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 5: 163.08 - 134.10 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 6: 139.00 - 129.80 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 7: 146.72 - 93.16 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 8: 108.16 - 156.04 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                </tr><tr><th>Confusius</th>
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 142.46 - 91.02 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 3: 114.76 - 118.40 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 135.22 - 132.18 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 5: 134.10 - 151.30 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 131.60 - 104.34 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 7: 132.80 - 164.98 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 91.56 - 123.36 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 112.66 - 164.98 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-diagonal'>
+                        6-3
+                        <div class='tooltiptext'><b>Actual Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 142.46 - 143.96 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 160.12 - 145.42 vs bkottak (<span style='color: #00d287;'>W</span>)<br>Wk 3: 114.76 - 110.46 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 4: 135.22 - 138.26 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 134.10 - 100.56 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 6: 131.60 - 105.94 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 7: 132.80 - 92.50 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 8: 91.56 - 105.60 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 112.66 - 89.08 vs jtallmadge (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 142.46 - 81.66 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 2: 160.12 - 82.16 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 3: 114.76 - 148.34 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 135.22 - 125.78 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 5: 134.10 - 163.08 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 131.60 - 164.16 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 91.56 - 140.34 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 112.66 - 131.76 vs sameggert (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 2: 160.12 - 108.48 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 3: 114.76 - 211.80 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 135.22 - 195.72 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 134.10 - 157.44 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 131.60 - 122.68 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 7: 132.80 - 128.38 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 8: 91.56 - 132.28 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 112.66 - 123.28 vs RFeiertag (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 142.46 - 171.96 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 160.12 - 135.78 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 3: 114.76 - 135.88 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 135.22 - 151.66 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 134.10 - 112.98 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 6: 131.60 - 117.84 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 7: 132.80 - 146.72 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 91.56 - 116.98 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(60.0, 75%, 35%);'>
+                        4-4
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 142.46 - 130.50 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 2: 160.12 - 60.58 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 3: 114.76 - 132.94 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 134.10 - 80.74 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 6: 131.60 - 96.50 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 7: 132.80 - 161.54 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 91.56 - 108.16 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 112.66 - 122.46 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 142.46 - 151.56 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 160.12 - 137.16 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 3: 114.76 - 111.44 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 4: 135.22 - 144.84 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 134.10 - 76.20 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 7: 132.80 - 134.52 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 91.56 - 124.36 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 112.66 - 114.26 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(60.0, 75%, 35%);'>
+                        4-4
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 142.46 - 209.76 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 160.12 - 125.54 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 4: 135.22 - 101.72 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 5: 134.10 - 180.52 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 131.60 - 122.16 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 7: 132.80 - 113.72 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 8: 91.56 - 124.72 vs RFeiertag (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 112.66 - 151.58 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(75.0, 75%, 35%);'>
+                        5-3
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 142.46 - 111.82 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 2: 160.12 - 132.98 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 3: 114.76 - 98.18 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 4: 135.22 - 111.80 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 5: 134.10 - 174.16 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 131.60 - 139.00 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 132.80 - 117.82 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 9: 112.66 - 126.40 vs mosohn (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(75.0, 75%, 35%);'>
+                        5-3
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 142.46 - 132.00 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 2: 160.12 - 138.60 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 3: 114.76 - 118.52 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 135.22 - 128.84 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 6: 131.60 - 129.80 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 7: 132.80 - 93.16 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 8: 91.56 - 156.04 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 112.66 - 147.26 vs bkottak (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                </tr><tr><th>Coopergonzalez2</th>
+                    <td class='matrix-cell' style='background-color: hsl(60.0, 75%, 35%);'>
+                        4-4
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 151.56 - 91.02 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 2: 135.78 - 160.12 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 132.94 - 118.40 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 4: 111.80 - 132.18 vs RFeiertag (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 122.68 - 104.34 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 7: 92.50 - 164.98 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 156.04 - 123.36 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 9: 151.58 - 164.98 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(90.0, 75%, 35%);'>
+                        6-2
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 151.56 - 143.96 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 2: 135.78 - 145.42 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 132.94 - 110.46 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 4: 111.80 - 138.26 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 151.30 - 100.56 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 6: 122.68 - 105.94 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 8: 156.04 - 105.60 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 9: 151.58 - 89.08 vs jtallmadge (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-diagonal'>
+                        4-5
+                        <div class='tooltiptext'><b>Actual Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 151.56 - 81.66 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 2: 135.78 - 82.16 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 3: 132.94 - 148.34 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 111.80 - 125.78 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 151.30 - 163.08 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 122.68 - 164.16 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 92.50 - 132.80 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 156.04 - 140.34 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 9: 151.58 - 131.76 vs sameggert (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(60.0, 75%, 35%);'>
+                        4-4
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 151.56 - 142.46 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 2: 135.78 - 108.48 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 3: 132.94 - 211.80 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 111.80 - 195.72 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 151.30 - 157.44 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 92.50 - 128.38 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 156.04 - 132.28 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 9: 151.58 - 123.28 vs RFeiertag (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(60.0, 75%, 35%);'>
+                        4-4
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 151.56 - 171.96 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 132.94 - 135.88 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 111.80 - 151.66 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 151.30 - 112.98 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 6: 122.68 - 117.84 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 7: 92.50 - 146.72 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 156.04 - 116.98 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 9: 151.58 - 112.66 vs Confusius (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(90.0, 75%, 35%);'>
+                        6-2
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 151.56 - 130.50 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 2: 135.78 - 60.58 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 4: 111.80 - 135.22 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 151.30 - 80.74 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 6: 122.68 - 96.50 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 7: 92.50 - 161.54 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 156.04 - 108.16 vs bkottak (<span style='color: #00d287;'>W</span>)<br>Wk 9: 151.58 - 122.46 vs skylarshafer (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(60.0, 75%, 35%);'>
+                        4-4
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 2: 135.78 - 137.16 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 132.94 - 111.44 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 4: 111.80 - 144.84 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 151.30 - 76.20 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 6: 122.68 - 131.60 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 92.50 - 134.52 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 156.04 - 124.36 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 9: 151.58 - 114.26 vs JEhrmann (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(75.0, 75%, 35%);'>
+                        5-3
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 151.56 - 209.76 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 135.78 - 125.54 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 3: 132.94 - 114.76 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 4: 111.80 - 101.72 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 5: 151.30 - 180.52 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 122.68 - 122.16 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 7: 92.50 - 113.72 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 156.04 - 124.72 vs RFeiertag (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(75.0, 75%, 35%);'>
+                        5-3
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 151.56 - 111.82 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 2: 135.78 - 132.98 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 3: 132.94 - 98.18 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 5: 151.30 - 174.16 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 122.68 - 139.00 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 92.50 - 117.82 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 156.04 - 91.56 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 9: 151.58 - 126.40 vs mosohn (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(60.0, 75%, 35%);'>
+                        4-4
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 151.56 - 132.00 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 2: 135.78 - 138.60 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 132.94 - 118.52 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 4: 111.80 - 128.84 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 151.30 - 134.10 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 6: 122.68 - 129.80 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 92.50 - 93.16 vs RFeiertag (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 151.58 - 147.26 vs bkottak (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                </tr><tr><th>JEhrmann</th>
+                    <td class='matrix-cell' style='background-color: hsl(30.0, 75%, 35%);'>
+                        2-6
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 143.96 - 91.02 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 2: 125.54 - 160.12 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 128.84 - 132.18 vs RFeiertag (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 80.74 - 151.30 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 164.16 - 104.34 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 7: 117.82 - 164.98 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 116.98 - 123.36 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 114.26 - 164.98 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(75.0, 75%, 35%);'>
+                        5-3
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 2: 125.54 - 145.42 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 118.40 - 110.46 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 4: 128.84 - 138.26 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 80.74 - 100.56 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 164.16 - 105.94 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 7: 117.82 - 92.50 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 8: 116.98 - 105.60 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 9: 114.26 - 89.08 vs jtallmadge (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 143.96 - 81.66 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 2: 125.54 - 82.16 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 3: 118.40 - 148.34 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 128.84 - 125.78 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 5: 80.74 - 163.08 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 117.82 - 132.80 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 116.98 - 140.34 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 114.26 - 131.76 vs sameggert (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-diagonal'>
+                        3-6
+                        <div class='tooltiptext'><b>Actual Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 143.96 - 142.46 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 2: 125.54 - 108.48 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 3: 118.40 - 211.80 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 128.84 - 195.72 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 80.74 - 157.44 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 164.16 - 122.68 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 7: 117.82 - 128.38 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 116.98 - 132.28 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 114.26 - 123.28 vs RFeiertag (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(30.0, 75%, 35%);'>
+                        2-6
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 143.96 - 171.96 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 125.54 - 135.78 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 118.40 - 135.88 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 128.84 - 151.66 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 80.74 - 112.98 vs RFeiertag (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 164.16 - 117.84 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 7: 117.82 - 146.72 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 114.26 - 112.66 vs Confusius (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(60.0, 75%, 35%);'>
+                        4-4
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 143.96 - 130.50 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 2: 125.54 - 60.58 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 3: 118.40 - 132.94 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 128.84 - 135.22 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 164.16 - 96.50 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 7: 117.82 - 161.54 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 116.98 - 108.16 vs bkottak (<span style='color: #00d287;'>W</span>)<br>Wk 9: 114.26 - 122.46 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 143.96 - 151.56 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 125.54 - 137.16 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 118.40 - 111.44 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 4: 128.84 - 144.84 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 80.74 - 76.20 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 6: 164.16 - 131.60 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 7: 117.82 - 134.52 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 116.98 - 124.36 vs sameggert (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(60.0, 75%, 35%);'>
+                        4-4
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 143.96 - 209.76 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 118.40 - 114.76 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 4: 128.84 - 101.72 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 5: 80.74 - 180.52 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 164.16 - 122.16 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 7: 117.82 - 113.72 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 8: 116.98 - 124.72 vs RFeiertag (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 114.26 - 151.58 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(75.0, 75%, 35%);'>
+                        5-3
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 143.96 - 111.82 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 2: 125.54 - 132.98 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 118.40 - 98.18 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 4: 128.84 - 111.80 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 5: 80.74 - 174.16 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 164.16 - 139.00 vs bkottak (<span style='color: #00d287;'>W</span>)<br>Wk 8: 116.98 - 91.56 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 9: 114.26 - 126.40 vs mosohn (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 143.96 - 132.00 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 2: 125.54 - 138.60 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 118.40 - 118.52 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 80.74 - 134.10 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 164.16 - 129.80 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 7: 117.82 - 93.16 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 8: 116.98 - 156.04 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 114.26 - 147.26 vs bkottak (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                </tr><tr><th>jtallmadge</th>
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 111.82 - 91.02 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 2: 82.16 - 160.12 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 118.52 - 118.40 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 4: 101.72 - 132.18 vs RFeiertag (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 76.20 - 151.30 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 96.50 - 104.34 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 132.28 - 123.36 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 9: 89.08 - 164.98 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 111.82 - 143.96 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 82.16 - 145.42 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 118.52 - 110.46 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 4: 101.72 - 138.26 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 76.20 - 100.56 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 96.50 - 105.94 vs RFeiertag (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 164.98 - 92.50 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 8: 132.28 - 105.60 vs skylarshafer (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(30.0, 75%, 35%);'>
+                        2-6
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 111.82 - 81.66 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 3: 118.52 - 148.34 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 101.72 - 125.78 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 76.20 - 163.08 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 96.50 - 164.16 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 164.98 - 132.80 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 8: 132.28 - 140.34 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 89.08 - 131.76 vs sameggert (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(15.0, 75%, 35%);'>
+                        1-7
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 111.82 - 142.46 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 82.16 - 108.48 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 118.52 - 211.80 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 101.72 - 195.72 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 76.20 - 157.44 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 96.50 - 122.68 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 164.98 - 128.38 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 9: 89.08 - 123.28 vs RFeiertag (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-diagonal'>
+                        2-7
+                        <div class='tooltiptext'><b>Actual Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 111.82 - 171.96 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 82.16 - 135.78 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 118.52 - 135.88 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 101.72 - 151.66 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 76.20 - 112.98 vs RFeiertag (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 96.50 - 117.84 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 164.98 - 146.72 vs bkottak (<span style='color: #00d287;'>W</span>)<br>Wk 8: 132.28 - 116.98 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 9: 89.08 - 112.66 vs Confusius (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 111.82 - 130.50 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 82.16 - 60.58 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 3: 118.52 - 132.94 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 101.72 - 135.22 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 76.20 - 80.74 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 164.98 - 161.54 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 8: 132.28 - 108.16 vs bkottak (<span style='color: #00d287;'>W</span>)<br>Wk 9: 89.08 - 122.46 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 111.82 - 151.56 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 82.16 - 137.16 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 118.52 - 111.44 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 4: 101.72 - 144.84 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 96.50 - 131.60 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 164.98 - 134.52 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 8: 132.28 - 124.36 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 9: 89.08 - 114.26 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 111.82 - 209.76 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 82.16 - 125.54 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 118.52 - 114.76 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 5: 76.20 - 180.52 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 96.50 - 122.16 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 164.98 - 113.72 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 8: 132.28 - 124.72 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 9: 89.08 - 151.58 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 2: 82.16 - 132.98 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 118.52 - 98.18 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 4: 101.72 - 111.80 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 76.20 - 174.16 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 96.50 - 139.00 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 164.98 - 117.82 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 8: 132.28 - 91.56 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 9: 89.08 - 126.40 vs mosohn (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(15.0, 75%, 35%);'>
+                        1-7
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 111.82 - 132.00 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 82.16 - 138.60 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 101.72 - 128.84 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 76.20 - 134.10 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 96.50 - 129.80 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 164.98 - 93.16 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 8: 132.28 - 156.04 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 89.08 - 147.26 vs bkottak (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                </tr><tr><th>mosohn</th>
+                    <td class='matrix-cell' style='background-color: hsl(75.0, 75%, 35%);'>
+                        5-3
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 132.00 - 91.02 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 2: 137.16 - 160.12 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 148.34 - 118.40 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 4: 138.26 - 132.18 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 5: 157.44 - 151.30 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 6: 117.84 - 104.34 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 7: 113.72 - 164.98 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 126.40 - 164.98 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(90.0, 75%, 35%);'>
+                        6-2
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 132.00 - 143.96 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 137.16 - 145.42 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 148.34 - 110.46 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 5: 157.44 - 100.56 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 6: 117.84 - 105.94 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 7: 113.72 - 92.50 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 8: 123.36 - 105.60 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 9: 126.40 - 89.08 vs jtallmadge (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 132.00 - 81.66 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 2: 137.16 - 82.16 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 4: 138.26 - 125.78 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 5: 157.44 - 163.08 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 117.84 - 164.16 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 113.72 - 132.80 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 123.36 - 140.34 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 126.40 - 131.76 vs sameggert (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(30.0, 75%, 35%);'>
+                        2-6
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 132.00 - 142.46 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 137.16 - 108.48 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 3: 148.34 - 211.80 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 138.26 - 195.72 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 117.84 - 122.68 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 113.72 - 128.38 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 123.36 - 132.28 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 126.40 - 123.28 vs RFeiertag (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(75.0, 75%, 35%);'>
+                        5-3
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 132.00 - 171.96 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 137.16 - 135.78 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 3: 148.34 - 135.88 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 4: 138.26 - 151.66 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 157.44 - 112.98 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 7: 113.72 - 146.72 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 123.36 - 116.98 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 9: 126.40 - 112.66 vs Confusius (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-diagonal'>
+                        8-1
+                        <div class='tooltiptext'><b>Actual Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 132.00 - 130.50 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 2: 137.16 - 60.58 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 3: 148.34 - 132.94 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 4: 138.26 - 135.22 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 5: 157.44 - 80.74 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 6: 117.84 - 96.50 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 7: 113.72 - 161.54 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 123.36 - 108.16 vs bkottak (<span style='color: #00d287;'>W</span>)<br>Wk 9: 126.40 - 122.46 vs skylarshafer (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 132.00 - 151.56 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 148.34 - 111.44 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 4: 138.26 - 144.84 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 157.44 - 76.20 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 6: 117.84 - 131.60 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 113.72 - 134.52 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 123.36 - 124.36 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 126.40 - 114.26 vs JEhrmann (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 132.00 - 209.76 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 137.16 - 125.54 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 3: 148.34 - 114.76 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 4: 138.26 - 101.72 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 5: 157.44 - 180.52 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 117.84 - 122.16 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 123.36 - 124.72 vs RFeiertag (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 126.40 - 151.58 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(75.0, 75%, 35%);'>
+                        5-3
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 132.00 - 111.82 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 2: 137.16 - 132.98 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 3: 148.34 - 98.18 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 4: 138.26 - 111.80 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 5: 157.44 - 174.16 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 117.84 - 139.00 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 113.72 - 117.82 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 123.36 - 91.56 vs Confusius (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(60.0, 75%, 35%);'>
+                        4-4
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 2: 137.16 - 138.60 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 148.34 - 118.52 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 4: 138.26 - 128.84 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 5: 157.44 - 134.10 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 6: 117.84 - 129.80 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 113.72 - 93.16 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 8: 123.36 - 156.04 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 126.40 - 147.26 vs bkottak (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                </tr><tr><th>RFeiertag</th>
+                    <td class='matrix-cell' style='background-color: hsl(30.0, 75%, 35%);'>
+                        2-6
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 81.66 - 91.02 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 60.58 - 160.12 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 98.18 - 118.40 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 112.98 - 151.30 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 105.94 - 104.34 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 7: 93.16 - 164.98 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 124.72 - 123.36 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 9: 123.28 - 164.98 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(60.0, 75%, 35%);'>
+                        4-4
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 81.66 - 143.96 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 60.58 - 145.42 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 98.18 - 110.46 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 132.18 - 138.26 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 112.98 - 100.56 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 7: 93.16 - 92.50 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 8: 124.72 - 105.60 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 9: 123.28 - 89.08 vs jtallmadge (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(15.0, 75%, 35%);'>
+                        1-7
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 2: 60.58 - 82.16 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 98.18 - 148.34 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 132.18 - 125.78 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 5: 112.98 - 163.08 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 105.94 - 164.16 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 93.16 - 132.80 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 124.72 - 140.34 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 123.28 - 131.76 vs sameggert (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(0.0, 75%, 35%);'>
+                        0-8
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 81.66 - 142.46 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 60.58 - 108.48 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 98.18 - 211.80 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 132.18 - 195.72 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 112.98 - 157.44 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 105.94 - 122.68 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 93.16 - 128.38 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 124.72 - 132.28 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(30.0, 75%, 35%);'>
+                        2-6
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 81.66 - 171.96 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 60.58 - 135.78 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 98.18 - 135.88 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 132.18 - 151.66 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 105.94 - 117.84 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 93.16 - 146.72 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 124.72 - 116.98 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 9: 123.28 - 112.66 vs Confusius (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(60.0, 75%, 35%);'>
+                        4-4
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 81.66 - 130.50 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 98.18 - 132.94 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 132.18 - 135.22 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 112.98 - 80.74 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 6: 105.94 - 96.50 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 7: 93.16 - 161.54 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 124.72 - 108.16 vs bkottak (<span style='color: #00d287;'>W</span>)<br>Wk 9: 123.28 - 122.46 vs skylarshafer (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-diagonal'>
+                        3-6
+                        <div class='tooltiptext'><b>Actual Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 81.66 - 151.56 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 60.58 - 137.16 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 98.18 - 111.44 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 132.18 - 144.84 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 112.98 - 76.20 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 6: 105.94 - 131.60 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 93.16 - 134.52 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 124.72 - 124.36 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 9: 123.28 - 114.26 vs JEhrmann (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(15.0, 75%, 35%);'>
+                        1-7
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 81.66 - 209.76 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 60.58 - 125.54 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 98.18 - 114.76 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 132.18 - 101.72 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 5: 112.98 - 180.52 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 105.94 - 122.16 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 93.16 - 113.72 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 123.28 - 151.58 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(30.0, 75%, 35%);'>
+                        2-6
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 81.66 - 111.82 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 60.58 - 132.98 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 132.18 - 111.80 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 5: 112.98 - 174.16 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 105.94 - 139.00 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 93.16 - 117.82 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 124.72 - 91.56 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 9: 123.28 - 126.40 vs mosohn (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(15.0, 75%, 35%);'>
+                        1-7
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 81.66 - 132.00 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 60.58 - 138.60 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 98.18 - 118.52 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 132.18 - 128.84 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 5: 112.98 - 134.10 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 105.94 - 129.80 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 124.72 - 156.04 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 123.28 - 147.26 vs bkottak (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                </tr><tr><th>sameggert</th>
+                    <td class='matrix-cell' style='background-color: hsl(60.0, 75%, 35%);'>
+                        4-4
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 2: 108.48 - 160.12 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 110.46 - 118.40 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 151.66 - 132.18 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 5: 174.16 - 151.30 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 6: 129.80 - 104.34 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 7: 161.54 - 164.98 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 124.36 - 123.36 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 9: 131.76 - 164.98 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(90.0, 75%, 35%);'>
+                        6-2
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 91.02 - 143.96 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 108.48 - 145.42 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 151.66 - 138.26 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 5: 174.16 - 100.56 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 6: 129.80 - 105.94 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 7: 161.54 - 92.50 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 8: 124.36 - 105.60 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 9: 131.76 - 89.08 vs jtallmadge (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(75.0, 75%, 35%);'>
+                        5-3
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 91.02 - 81.66 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 2: 108.48 - 82.16 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 3: 110.46 - 148.34 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 151.66 - 125.78 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 5: 174.16 - 163.08 vs bkottak (<span style='color: #00d287;'>W</span>)<br>Wk 6: 129.80 - 164.16 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 161.54 - 132.80 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 8: 124.36 - 140.34 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(60.0, 75%, 35%);'>
+                        4-4
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 91.02 - 142.46 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 110.46 - 211.80 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 151.66 - 195.72 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 174.16 - 157.44 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 6: 129.80 - 122.68 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 7: 161.54 - 128.38 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 8: 124.36 - 132.28 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 131.76 - 123.28 vs RFeiertag (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(75.0, 75%, 35%);'>
+                        5-3
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 91.02 - 171.96 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 108.48 - 135.78 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 110.46 - 135.88 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 174.16 - 112.98 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 6: 129.80 - 117.84 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 7: 161.54 - 146.72 vs bkottak (<span style='color: #00d287;'>W</span>)<br>Wk 8: 124.36 - 116.98 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 9: 131.76 - 112.66 vs Confusius (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(90.0, 75%, 35%);'>
+                        6-2
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 91.02 - 130.50 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 108.48 - 60.58 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 3: 110.46 - 132.94 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 151.66 - 135.22 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 5: 174.16 - 80.74 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 6: 129.80 - 96.50 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 8: 124.36 - 108.16 vs bkottak (<span style='color: #00d287;'>W</span>)<br>Wk 9: 131.76 - 122.46 vs skylarshafer (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(60.0, 75%, 35%);'>
+                        4-4
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 91.02 - 151.56 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 108.48 - 137.16 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 110.46 - 111.44 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 151.66 - 144.84 vs bkottak (<span style='color: #00d287;'>W</span>)<br>Wk 5: 174.16 - 76.20 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 6: 129.80 - 131.60 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 161.54 - 134.52 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 9: 131.76 - 114.26 vs JEhrmann (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-diagonal'>
+                        3-6
+                        <div class='tooltiptext'><b>Actual Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 91.02 - 209.76 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 108.48 - 125.54 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 110.46 - 114.76 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 151.66 - 101.72 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 5: 174.16 - 180.52 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 129.80 - 122.16 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 7: 161.54 - 113.72 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 8: 124.36 - 124.72 vs RFeiertag (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 131.76 - 151.58 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(75.0, 75%, 35%);'>
+                        5-3
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 91.02 - 111.82 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 108.48 - 132.98 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 110.46 - 98.18 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 4: 151.66 - 111.80 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 6: 129.80 - 139.00 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 161.54 - 117.82 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 8: 124.36 - 91.56 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 9: 131.76 - 126.40 vs mosohn (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 91.02 - 132.00 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 108.48 - 138.60 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 110.46 - 118.52 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 151.66 - 128.84 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 5: 174.16 - 134.10 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 7: 161.54 - 93.16 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 8: 124.36 - 156.04 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 131.76 - 147.26 vs bkottak (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                </tr><tr><th>skylarshafer</th>
+                    <td class='matrix-cell' style='background-color: hsl(30.0, 75%, 35%);'>
+                        2-6
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 171.96 - 91.02 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 2: 138.60 - 160.12 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 111.44 - 118.40 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 125.78 - 132.18 vs RFeiertag (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 180.52 - 151.30 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 7: 128.38 - 164.98 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 105.60 - 123.36 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 122.46 - 164.98 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(75.0, 75%, 35%);'>
+                        5-3
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 171.96 - 143.96 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 2: 138.60 - 145.42 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 111.44 - 110.46 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 4: 125.78 - 138.26 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 180.52 - 100.56 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 6: 104.34 - 105.94 vs RFeiertag (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 128.38 - 92.50 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 9: 122.46 - 89.08 vs jtallmadge (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 171.96 - 81.66 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 2: 138.60 - 82.16 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 3: 111.44 - 148.34 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 180.52 - 163.08 vs bkottak (<span style='color: #00d287;'>W</span>)<br>Wk 6: 104.34 - 164.16 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 128.38 - 132.80 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 105.60 - 140.34 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 122.46 - 131.76 vs sameggert (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 171.96 - 142.46 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 2: 138.60 - 108.48 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 3: 111.44 - 211.80 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 125.78 - 195.72 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 180.52 - 157.44 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 6: 104.34 - 122.68 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 105.60 - 132.28 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 122.46 - 123.28 vs RFeiertag (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 2: 138.60 - 135.78 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 3: 111.44 - 135.88 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 125.78 - 151.66 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 180.52 - 112.98 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 6: 104.34 - 117.84 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 128.38 - 146.72 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 105.60 - 116.98 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 122.46 - 112.66 vs Confusius (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(60.0, 75%, 35%);'>
+                        4-4
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 171.96 - 130.50 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 2: 138.60 - 60.58 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 3: 111.44 - 132.94 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 125.78 - 135.22 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 180.52 - 80.74 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 6: 104.34 - 96.50 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 7: 128.38 - 161.54 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 105.60 - 108.16 vs bkottak (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(60.0, 75%, 35%);'>
+                        4-4
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 171.96 - 151.56 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 2: 138.60 - 137.16 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 4: 125.78 - 144.84 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 180.52 - 76.20 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 6: 104.34 - 131.60 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 128.38 - 134.52 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 105.60 - 124.36 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 122.46 - 114.26 vs JEhrmann (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 171.96 - 209.76 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 138.60 - 125.54 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 3: 111.44 - 114.76 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 125.78 - 101.72 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 6: 104.34 - 122.16 vs vincenzo180 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 128.38 - 113.72 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 8: 105.60 - 124.72 vs RFeiertag (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 122.46 - 151.58 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-diagonal'>
+                        7-2
+                        <div class='tooltiptext'><b>Actual Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 171.96 - 111.82 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 2: 138.60 - 132.98 vs vincenzo180 (<span style='color: #00d287;'>W</span>)<br>Wk 3: 111.44 - 98.18 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 4: 125.78 - 111.80 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 5: 180.52 - 174.16 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 6: 104.34 - 139.00 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 128.38 - 117.82 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 8: 105.60 - 91.56 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 9: 122.46 - 126.40 vs mosohn (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(45.0, 75%, 35%);'>
+                        3-5
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 171.96 - 132.00 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 3: 111.44 - 118.52 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 125.78 - 128.84 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 180.52 - 134.10 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 6: 104.34 - 129.80 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 128.38 - 93.16 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 8: 105.60 - 156.04 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 122.46 - 147.26 vs bkottak (<span style='color: #ff4a4a;'>L</span>)</div>
+                    </td>
+                </tr><tr><th>vincenzo180</th>
+                    <td class='matrix-cell' style='background-color: hsl(75.0, 75%, 35%);'>
+                        5-3
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 130.50 - 91.02 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 2: 132.98 - 160.12 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 135.88 - 118.40 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 4: 195.72 - 132.18 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 5: 100.56 - 151.30 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 122.16 - 104.34 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 7: 134.52 - 164.98 vs jtallmadge (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 140.34 - 123.36 vs mosohn (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(90.0, 75%, 35%);'>
+                        6-2
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 130.50 - 143.96 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 132.98 - 145.42 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 135.88 - 110.46 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 4: 195.72 - 138.26 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 6: 122.16 - 105.94 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 7: 134.52 - 92.50 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 8: 140.34 - 105.60 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 9: 164.98 - 89.08 vs jtallmadge (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(75.0, 75%, 35%);'>
+                        5-3
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 130.50 - 81.66 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 2: 132.98 - 82.16 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 3: 135.88 - 148.34 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 195.72 - 125.78 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 5: 100.56 - 163.08 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 122.16 - 164.16 vs JEhrmann (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 134.52 - 132.80 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 9: 164.98 - 131.76 vs sameggert (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(60.0, 75%, 35%);'>
+                        4-4
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 130.50 - 142.46 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 132.98 - 108.48 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 3: 135.88 - 211.80 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 5: 100.56 - 157.44 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 122.16 - 122.68 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 134.52 - 128.38 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 8: 140.34 - 132.28 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 9: 164.98 - 123.28 vs RFeiertag (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(60.0, 75%, 35%);'>
+                        4-4
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 130.50 - 171.96 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 132.98 - 135.78 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 4: 195.72 - 151.66 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 5: 100.56 - 112.98 vs RFeiertag (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 122.16 - 117.84 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 7: 134.52 - 146.72 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 140.34 - 116.98 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 9: 164.98 - 112.66 vs Confusius (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(105.0, 75%, 35%);'>
+                        7-1
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 2: 132.98 - 60.58 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 3: 135.88 - 132.94 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 4: 195.72 - 135.22 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 5: 100.56 - 80.74 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 6: 122.16 - 96.50 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 7: 134.52 - 161.54 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 140.34 - 108.16 vs bkottak (<span style='color: #00d287;'>W</span>)<br>Wk 9: 164.98 - 122.46 vs skylarshafer (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(75.0, 75%, 35%);'>
+                        5-3
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 130.50 - 151.56 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 132.98 - 137.16 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 135.88 - 111.44 vs skylarshafer (<span style='color: #00d287;'>W</span>)<br>Wk 4: 195.72 - 144.84 vs bkottak (<span style='color: #00d287;'>W</span>)<br>Wk 5: 100.56 - 76.20 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 6: 122.16 - 131.60 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 8: 140.34 - 124.36 vs sameggert (<span style='color: #00d287;'>W</span>)<br>Wk 9: 164.98 - 114.26 vs JEhrmann (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(90.0, 75%, 35%);'>
+                        6-2
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 130.50 - 209.76 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 132.98 - 125.54 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 3: 135.88 - 114.76 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 4: 195.72 - 101.72 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 5: 100.56 - 180.52 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 134.52 - 113.72 vs mosohn (<span style='color: #00d287;'>W</span>)<br>Wk 8: 140.34 - 124.72 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 9: 164.98 - 151.58 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-cell' style='background-color: hsl(90.0, 75%, 35%);'>
+                        6-2
+                        <div class='tooltiptext'><b>Simulated Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 130.50 - 111.82 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 3: 135.88 - 98.18 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 4: 195.72 - 111.80 vs Coopergonzalez2 (<span style='color: #00d287;'>W</span>)<br>Wk 5: 100.56 - 174.16 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 122.16 - 139.00 vs bkottak (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 134.52 - 117.82 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 8: 140.34 - 91.56 vs Confusius (<span style='color: #00d287;'>W</span>)<br>Wk 9: 164.98 - 126.40 vs mosohn (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                
+                    <td class='matrix-diagonal'>
+                        4-5
+                        <div class='tooltiptext'><b>Actual Matchups:</b><hr style='border-color:#444; margin:5px 0;'>Wk 1: 130.50 - 132.00 vs mosohn (<span style='color: #ff4a4a;'>L</span>)<br>Wk 2: 132.98 - 138.60 vs skylarshafer (<span style='color: #ff4a4a;'>L</span>)<br>Wk 3: 135.88 - 118.52 vs jtallmadge (<span style='color: #00d287;'>W</span>)<br>Wk 4: 195.72 - 128.84 vs JEhrmann (<span style='color: #00d287;'>W</span>)<br>Wk 5: 100.56 - 134.10 vs Confusius (<span style='color: #ff4a4a;'>L</span>)<br>Wk 6: 122.16 - 129.80 vs sameggert (<span style='color: #ff4a4a;'>L</span>)<br>Wk 7: 134.52 - 93.16 vs RFeiertag (<span style='color: #00d287;'>W</span>)<br>Wk 8: 140.34 - 156.04 vs Coopergonzalez2 (<span style='color: #ff4a4a;'>L</span>)<br>Wk 9: 164.98 - 147.26 vs bkottak (<span style='color: #00d287;'>W</span>)</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+    </html>
+    

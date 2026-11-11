@@ -4,26 +4,29 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Top 20 Sleeper Fantasy Scores</title>
+        <title>Sleeper Fantasy Score Records</title>
         <style>
-            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 40px; background-color: #f4f7f6; color: #333; }
-            h2 { text-align: center; color: #1c1c1c; margin-top: 40px; }
-            table { width: 80%; margin: 20px auto; border-collapse: collapse; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: white; }
-            th, td { padding: 15px; text-align: center; border-bottom: 1px solid #eee; }
-            th { background-color: #00d287; color: white; text-transform: uppercase; font-size: 14px; letter-spacing: 0.05em; }
-            tr:hover { background-color: #f9f9f9; }
-            .score { font-weight: bold; color: #00d287; }
-            .summary-table th { background-color: #333; }
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 40px; background-color: #121212; color: #e0e0e0; }
+            h2 { text-align: center; color: #ffffff; margin-top: 50px; }
+            table { width: 85%; margin: 20px auto; border-collapse: collapse; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); background-color: #1e1e1e; }
+            th, td { padding: 15px; text-align: center; border-bottom: 1px solid #333; }
+            th { background-color: #00d287; color: #121212; text-transform: uppercase; font-size: 14px; letter-spacing: 0.05em; font-weight: bold; }
+            tr:hover { background-color: #2a2a2a; }
+            .score-high { font-weight: bold; color: #00d287; }
+            .score-low { font-weight: bold; color: #ff5555; }
+            .summary-table th { background-color: #2c2c2c; color: #00d287; }
         </style>
     </head>
     <body>
-        <h2>Team Appearances in Top 20</h2>
+        <h2>Team Appearances in Records</h2>
         <table class="summary-table">
             <thead>
                 <tr>
                     <th>Team</th>
                     <th>Times with Top Score</th>
-                    <th>Times as Opponent</th>
+                    <th>Times as Opponent (Top)</th>
+                    <th>Times with Lowest Score</th>
+                    <th>Times as Opponent (Lowest)</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,53 +35,79 @@
                     <td>bkottak</td>
                     <td>4</td>
                     <td>2</td>
+                    <td>3</td>
+                    <td>3</td>
                 </tr>
         
                 <tr>
                     <td>skylarshafer</td>
                     <td>4</td>
                     <td>1</td>
-                </tr>
-        
-                <tr>
-                    <td>mosohn</td>
-                    <td>3</td>
-                    <td>2</td>
+                    <td>0</td>
+                    <td>4</td>
                 </tr>
         
                 <tr>
                     <td>vincenzo180</td>
                     <td>3</td>
                     <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+        
+                <tr>
+                    <td>mosohn</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>3</td>
                 </tr>
         
                 <tr>
                     <td>JEhrmann</td>
                     <td>2</td>
                     <td>4</td>
+                    <td>1</td>
+                    <td>1</td>
                 </tr>
         
                 <tr>
                     <td>sameggert</td>
                     <td>2</td>
                     <td>4</td>
-                </tr>
-        
-                <tr>
-                    <td>Confusius</td>
                     <td>1</td>
-                    <td>1</td>
+                    <td>2</td>
                 </tr>
         
                 <tr>
                     <td>RFeiertag</td>
                     <td>1</td>
                     <td>1</td>
+                    <td>3</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>Confusius</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
                 </tr>
         
                 <tr>
                     <td>jtallmadge</td>
                     <td>0</td>
+                    <td>3</td>
+                    <td>5</td>
+                    <td>1</td>
+                </tr>
+        
+                <tr>
+                    <td>Coopergonzalez2</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>4</td>
                     <td>3</td>
                 </tr>
         
@@ -105,7 +134,7 @@
                     <td>2026</td>
                     <td>3</td>
                     <td>bkottak</td>
-                    <td class="score">211.80</td>
+                    <td class="score-high">211.80</td>
                     <td>JEhrmann</td>
                     <td>118.40</td>
                 </tr>
@@ -115,7 +144,7 @@
                     <td>2024</td>
                     <td>11</td>
                     <td>mosohn</td>
-                    <td class="score">211.18</td>
+                    <td class="score-high">211.18</td>
                     <td>Confusius</td>
                     <td>123.98</td>
                 </tr>
@@ -125,7 +154,7 @@
                     <td>2026</td>
                     <td>1</td>
                     <td>bkottak</td>
-                    <td class="score">209.76</td>
+                    <td class="score-high">209.76</td>
                     <td>sameggert</td>
                     <td>91.02</td>
                 </tr>
@@ -135,7 +164,7 @@
                     <td>2024</td>
                     <td>16</td>
                     <td>skylarshafer</td>
-                    <td class="score">205.82</td>
+                    <td class="score-high">205.82</td>
                     <td>mosohn</td>
                     <td>84.30</td>
                 </tr>
@@ -145,7 +174,7 @@
                     <td>2025</td>
                     <td>15</td>
                     <td>vincenzo180</td>
-                    <td class="score">204.94</td>
+                    <td class="score-high">204.94</td>
                     <td>mosohn</td>
                     <td>130.56</td>
                 </tr>
@@ -155,7 +184,7 @@
                     <td>2024</td>
                     <td>14</td>
                     <td>Confusius</td>
-                    <td class="score">197.68</td>
+                    <td class="score-high">197.68</td>
                     <td>RFeiertag</td>
                     <td>153.74</td>
                 </tr>
@@ -165,7 +194,7 @@
                     <td>2025</td>
                     <td>16</td>
                     <td>bkottak</td>
-                    <td class="score">195.76</td>
+                    <td class="score-high">195.76</td>
                     <td>vincenzo180</td>
                     <td>96.52</td>
                 </tr>
@@ -175,7 +204,7 @@
                     <td>2026</td>
                     <td>4</td>
                     <td>vincenzo180</td>
-                    <td class="score">195.72</td>
+                    <td class="score-high">195.72</td>
                     <td>JEhrmann</td>
                     <td>128.84</td>
                 </tr>
@@ -185,7 +214,7 @@
                     <td>2024</td>
                     <td>17</td>
                     <td>vincenzo180</td>
-                    <td class="score">195.58</td>
+                    <td class="score-high">195.58</td>
                     <td>sameggert</td>
                     <td>165.52</td>
                 </tr>
@@ -195,7 +224,7 @@
                     <td>2025</td>
                     <td>11</td>
                     <td>JEhrmann</td>
-                    <td class="score">193.82</td>
+                    <td class="score-high">193.82</td>
                     <td>vincenzo180</td>
                     <td>98.30</td>
                 </tr>
@@ -205,7 +234,7 @@
                     <td>2024</td>
                     <td>3</td>
                     <td>sameggert</td>
-                    <td class="score">185.78</td>
+                    <td class="score-high">185.78</td>
                     <td>jtallmadge</td>
                     <td>81.04</td>
                 </tr>
@@ -215,7 +244,7 @@
                     <td>2026</td>
                     <td>5</td>
                     <td>skylarshafer</td>
-                    <td class="score">180.52</td>
+                    <td class="score-high">180.52</td>
                     <td>sameggert</td>
                     <td>174.16</td>
                 </tr>
@@ -225,7 +254,7 @@
                     <td>2025</td>
                     <td>14</td>
                     <td>skylarshafer</td>
-                    <td class="score">177.76</td>
+                    <td class="score-high">177.76</td>
                     <td>sameggert</td>
                     <td>87.78</td>
                 </tr>
@@ -235,7 +264,7 @@
                     <td>2025</td>
                     <td>12</td>
                     <td>mosohn</td>
-                    <td class="score">176.76</td>
+                    <td class="score-high">176.76</td>
                     <td>jtallmadge</td>
                     <td>153.36</td>
                 </tr>
@@ -245,7 +274,7 @@
                     <td>2024</td>
                     <td>13</td>
                     <td>mosohn</td>
-                    <td class="score">175.28</td>
+                    <td class="score-high">175.28</td>
                     <td>bkottak</td>
                     <td>147.56</td>
                 </tr>
@@ -255,7 +284,7 @@
                     <td>2026</td>
                     <td>5</td>
                     <td>sameggert</td>
-                    <td class="score">174.16</td>
+                    <td class="score-high">174.16</td>
                     <td>skylarshafer</td>
                     <td>180.52</td>
                 </tr>
@@ -265,7 +294,7 @@
                     <td>2024</td>
                     <td>6</td>
                     <td>RFeiertag</td>
-                    <td class="score">172.42</td>
+                    <td class="score-high">172.42</td>
                     <td>JEhrmann</td>
                     <td>143.18</td>
                 </tr>
@@ -275,7 +304,7 @@
                     <td>2026</td>
                     <td>1</td>
                     <td>skylarshafer</td>
-                    <td class="score">171.96</td>
+                    <td class="score-high">171.96</td>
                     <td>jtallmadge</td>
                     <td>111.82</td>
                 </tr>
@@ -285,7 +314,7 @@
                     <td>2025</td>
                     <td>6</td>
                     <td>JEhrmann</td>
-                    <td class="score">170.24</td>
+                    <td class="score-high">170.24</td>
                     <td>bkottak</td>
                     <td>170.18</td>
                 </tr>
@@ -295,9 +324,227 @@
                     <td>2025</td>
                     <td>6</td>
                     <td>bkottak</td>
-                    <td class="score">170.18</td>
+                    <td class="score-high">170.18</td>
                     <td>JEhrmann</td>
                     <td>170.24</td>
+                </tr>
+        
+            </tbody>
+        </table>
+
+        <h2>Top 20 Lowest Weekly Scores (All-Time)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Year</th>
+                    <th>Week</th>
+                    <th>Team</th>
+                    <th>Score</th>
+                    <th>Opponent</th>
+                    <th>Opp Score</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+                <tr>
+                    <td>1</td>
+                    <td>2024</td>
+                    <td>16</td>
+                    <td>Coopergonzalez2</td>
+                    <td class="score-low">8.00</td>
+                    <td>bkottak</td>
+                    <td>0.00</td>
+                </tr>
+        
+                <tr>
+                    <td>2</td>
+                    <td>2024</td>
+                    <td>15</td>
+                    <td>bkottak</td>
+                    <td class="score-low">60.12</td>
+                    <td>JEhrmann</td>
+                    <td>131.44</td>
+                </tr>
+        
+                <tr>
+                    <td>3</td>
+                    <td>2026</td>
+                    <td>2</td>
+                    <td>RFeiertag</td>
+                    <td class="score-low">60.58</td>
+                    <td>mosohn</td>
+                    <td>137.16</td>
+                </tr>
+        
+                <tr>
+                    <td>4</td>
+                    <td>2026</td>
+                    <td>8</td>
+                    <td>bkottak</td>
+                    <td class="score-low">72.86</td>
+                    <td>mosohn</td>
+                    <td>123.36</td>
+                </tr>
+        
+                <tr>
+                    <td>5</td>
+                    <td>2025</td>
+                    <td>3</td>
+                    <td>vincenzo180</td>
+                    <td class="score-low">75.58</td>
+                    <td>skylarshafer</td>
+                    <td>159.92</td>
+                </tr>
+        
+                <tr>
+                    <td>6</td>
+                    <td>2026</td>
+                    <td>5</td>
+                    <td>jtallmadge</td>
+                    <td class="score-low">76.20</td>
+                    <td>RFeiertag</td>
+                    <td>112.98</td>
+                </tr>
+        
+                <tr>
+                    <td>7</td>
+                    <td>2025</td>
+                    <td>1</td>
+                    <td>jtallmadge</td>
+                    <td class="score-low">78.78</td>
+                    <td>bkottak</td>
+                    <td>132.82</td>
+                </tr>
+        
+                <tr>
+                    <td>8</td>
+                    <td>2024</td>
+                    <td>7</td>
+                    <td>Coopergonzalez2</td>
+                    <td class="score-low">79.16</td>
+                    <td>vincenzo180</td>
+                    <td>156.78</td>
+                </tr>
+        
+                <tr>
+                    <td>9</td>
+                    <td>2026</td>
+                    <td>5</td>
+                    <td>JEhrmann</td>
+                    <td class="score-low">80.74</td>
+                    <td>mosohn</td>
+                    <td>157.44</td>
+                </tr>
+        
+                <tr>
+                    <td>10</td>
+                    <td>2024</td>
+                    <td>3</td>
+                    <td>jtallmadge</td>
+                    <td class="score-low">81.04</td>
+                    <td>sameggert</td>
+                    <td>185.78</td>
+                </tr>
+        
+                <tr>
+                    <td>11</td>
+                    <td>2026</td>
+                    <td>1</td>
+                    <td>RFeiertag</td>
+                    <td class="score-low">81.66</td>
+                    <td>Coopergonzalez2</td>
+                    <td>151.56</td>
+                </tr>
+        
+                <tr>
+                    <td>12</td>
+                    <td>2025</td>
+                    <td>16</td>
+                    <td>Coopergonzalez2</td>
+                    <td class="score-low">82.12</td>
+                    <td>jtallmadge</td>
+                    <td>122.30</td>
+                </tr>
+        
+                <tr>
+                    <td>13</td>
+                    <td>2026</td>
+                    <td>2</td>
+                    <td>jtallmadge</td>
+                    <td class="score-low">82.16</td>
+                    <td>Coopergonzalez2</td>
+                    <td>135.78</td>
+                </tr>
+        
+                <tr>
+                    <td>14</td>
+                    <td>2025</td>
+                    <td>4</td>
+                    <td>RFeiertag</td>
+                    <td class="score-low">83.12</td>
+                    <td>Coopergonzalez2</td>
+                    <td>138.30</td>
+                </tr>
+        
+                <tr>
+                    <td>15</td>
+                    <td>2025</td>
+                    <td>11</td>
+                    <td>Coopergonzalez2</td>
+                    <td class="score-low">83.44</td>
+                    <td>skylarshafer</td>
+                    <td>96.12</td>
+                </tr>
+        
+                <tr>
+                    <td>16</td>
+                    <td>2024</td>
+                    <td>16</td>
+                    <td>mosohn</td>
+                    <td class="score-low">84.30</td>
+                    <td>skylarshafer</td>
+                    <td>205.82</td>
+                </tr>
+        
+                <tr>
+                    <td>17</td>
+                    <td>2025</td>
+                    <td>14</td>
+                    <td>bkottak</td>
+                    <td class="score-low">85.00</td>
+                    <td>vincenzo180</td>
+                    <td>134.16</td>
+                </tr>
+        
+                <tr>
+                    <td>18</td>
+                    <td>2025</td>
+                    <td>10</td>
+                    <td>jtallmadge</td>
+                    <td class="score-low">87.72</td>
+                    <td>bkottak</td>
+                    <td>136.90</td>
+                </tr>
+        
+                <tr>
+                    <td>19</td>
+                    <td>2025</td>
+                    <td>14</td>
+                    <td>sameggert</td>
+                    <td class="score-low">87.78</td>
+                    <td>skylarshafer</td>
+                    <td>177.76</td>
+                </tr>
+        
+                <tr>
+                    <td>20</td>
+                    <td>2025</td>
+                    <td>10</td>
+                    <td>vincenzo180</td>
+                    <td class="score-low">87.80</td>
+                    <td>sameggert</td>
+                    <td>156.30</td>
                 </tr>
         
             </tbody>
